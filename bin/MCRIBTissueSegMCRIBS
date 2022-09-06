@@ -147,13 +147,14 @@ fi
 # threshold with K-Means into 4 classes
 # 2, 3, 4 will be tissue, 1 will be background
 ThresholdImage 3 ${OUTPUTPREFIX}_t2w_first_bet_restore.nii.gz ${OUTPUTPREFIX}_t2w_first_bet_restore_kmeans3.nii.gz Kmeans 3 ${OUTPUTPREFIX}_t2w_init_restore_first_bet_mask.nii.gz
-fslmaths ${OUTPUTPREFIX}_t2w_first_bet_restore_kmeans4 ${OUTPUTPREFIX}_t2w_first_bet_restore_kmeans3 -odt char
-exit
+
 if [ ! -f "${OUTPUTPREFIX}_t2w_first_bet_restore_kmeans4.nii.gz" ]
 then
     ThresholdImage 3 ${OUTPUTPREFIX}_t2w_first_bet_restore.nii.gz ${OUTPUTPREFIX}_t2w_first_bet_restore_kmeans4.nii.gz Kmeans 4 ${OUTPUTPREFIX}_t2w_init_restore_first_bet_mask.nii.gz
     fslmaths ${OUTPUTPREFIX}_t2w_first_bet_restore_kmeans4 ${OUTPUTPREFIX}_t2w_first_bet_restore_kmeans4 -odt char
 fi
+fslmaths ${OUTPUTPREFIX}_t2w_first_bet_restore_kmeans4 ${OUTPUTPREFIX}_t2w_first_bet_restore_kmeans3 -odt char
+exit
 
 if [ ! -f "${OUTPUTPREFIX}_brain_mask.nii.gz" ]
 then
