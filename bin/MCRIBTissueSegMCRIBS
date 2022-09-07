@@ -154,7 +154,6 @@ then
     fslmaths ${OUTPUTPREFIX}_t2w_first_bet_restore_kmeans4 ${OUTPUTPREFIX}_t2w_first_bet_restore_kmeans4 -odt char
 fi
 fslmaths ${OUTPUTPREFIX}_t2w_first_bet_restore_kmeans4 ${OUTPUTPREFIX}_t2w_first_bet_restore_kmeans3 -odt char
-exit
 
 if [ ! -f "${OUTPUTPREFIX}_brain_mask.nii.gz" ]
 then
