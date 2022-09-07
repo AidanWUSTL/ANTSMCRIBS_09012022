@@ -312,7 +312,7 @@ antsApplyTransforms -v -d 3 --input $TEMPLATEDIR/Finaltemplate0Brain.nii.gz --re
 	--transform ${OUTPUTPREFIX}_skullstrip_reg1InverseWarp.nii.gz \
 	--output-data-type short \
 	--output ${OUTPUTPREFIX}_template_skullstrip_reg.nii.gz
-exit
+
 if [ ! -f "${OUTPUTPREFIX}_t2w_restore_brain_dn.nii.gz" ]
 then
 	DenoiseImage -d 3 -i ${OUTPUTPREFIX}_t2w_restore_brain.nii.gz -x ${OUTPUTPREFIX}_brain_mask.nii.gz -o ${OUTPUTPREFIX}_t2w_restore_brain_dn.nii.gz -v 1
